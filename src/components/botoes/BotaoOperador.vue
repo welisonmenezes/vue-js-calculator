@@ -6,7 +6,7 @@
 export default {
   name: "BotaoOperador",
   props: {
-    operador: String
+    operador: String,
   },
 };
 </script>

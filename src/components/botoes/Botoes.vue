@@ -51,9 +51,8 @@ export default {
     BotaoOperador,
     BotaoResultado,
     BotaoTrocarSinal,
-    BotaoVoltar
+    BotaoVoltar,
   },
-  props: {},
 };
 </script>
 

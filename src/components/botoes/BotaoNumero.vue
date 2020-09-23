@@ -6,7 +6,7 @@
 export default {
   name: "BotaoNumero",
   props: {
-    numero: String
+    numero: String,
   },
 };
 </script>

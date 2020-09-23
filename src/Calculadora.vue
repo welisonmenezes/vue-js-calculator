@@ -16,7 +16,7 @@ export default {
   components: {
     Historico,
     Display,
-    Botoes
+    Botoes,
   },
 };
 </script>
