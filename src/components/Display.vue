@@ -1,5 +1,5 @@
 <template>
-  <div class="display">{{ digito }}</div>
+  <div class="display">{{ resultado }}</div>
 </template>
 
 <script>
@@ -8,7 +8,7 @@ import { mapGetters } from "vuex";
 export default {
   name: "Display",
   computed: {
-    ...mapGetters(["digito"]),
+    ...mapGetters(["resultado"]),
   },
 };
 </script>

@@ -1,10 +1,15 @@
 <template>
-  <div class="historico"></div>
+  <div class="historico">{{ historico }}</div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "Historico",
+  computed: {
+    ...mapGetters(["historico"]),
+  },
 };
 </script>
 
