@@ -3,14 +3,17 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "BotaoNumero",
   props: {
     numero: String,
   },
   methods: {
-    digitarNumero: () => {
-      console.log("BotaoNumero Click Handler.", event);
+    ...mapActions(["atualizaDigito"]),
+    digitarNumero() {
+      this.atualizaDigito(event.target.innerHTML);
     },
   },
 };

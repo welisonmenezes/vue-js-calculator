@@ -1,8 +1,10 @@
-import Vue from 'vue'
-import Calculadora from './Calculadora.vue'
+import Vue from "vue";
+import Calculadora from "./Calculadora.vue";
+import store from "./store";
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
-  render: h => h(Calculadora),
-}).$mount('#app')
+    store,
+    render: (h) => h(Calculadora),
+}).$mount("#app");

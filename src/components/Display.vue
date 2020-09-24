@@ -1,10 +1,15 @@
 <template>
-  <div class="display">0</div>
+  <div class="display">{{ digito }}</div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "Display",
+  computed: {
+    ...mapGetters(["digito"]),
+  },
 };
 </script>
 
