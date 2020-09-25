@@ -4,6 +4,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import { operadoresValidos } from '../../utils/Util';
 
 export default {
   name: "BotaoNumero",
@@ -21,7 +22,6 @@ export default {
       "limparOperadores",
     ]),
     digitarNumero() {
-      const operadoresValidos = ["+", "-", "×", "÷"];
       let tempDigito = this.digito;
 
       // permitir apenas um ponto (.) no dígito atual

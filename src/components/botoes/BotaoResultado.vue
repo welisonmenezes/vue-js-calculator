@@ -4,7 +4,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
-
+import { naoNumeros } from '../../utils/Util';
 export default {
   name: "BotaoResultado",
   computed: {
@@ -13,7 +13,6 @@ export default {
   methods: {
     ...mapActions(["atualizarNumeros", "atualizarDigito"]),
     mostrarResultado() {
-      const naoNumeros = ["+", "-", "×", "÷", ".", "=", "C", "CE", "=/-"];
 
       // se resultado ainda não foi requerido
       if (this.digito !== "=") {

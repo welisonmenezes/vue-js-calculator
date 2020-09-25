@@ -4,6 +4,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import { operadoresValidos } from '../../utils/Util';
 
 export default {
   name: "BotaoOperador",
@@ -21,7 +22,6 @@ export default {
       "atualizarDigito",
     ]),
     digitarOperador() {
-      const operadoresValidos = ["+", "-", "×", "÷"];
       let tempDigito = this.digito;
 
       // se dígito atual ainda não existe ou já é operador, operador não é necessário

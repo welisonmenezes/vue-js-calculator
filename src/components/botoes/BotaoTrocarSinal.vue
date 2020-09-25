@@ -4,6 +4,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import { naoNumeros } from '../../utils/Util';
 
 export default {
   name: "BotaoTrocarSinal",
@@ -18,7 +19,6 @@ export default {
       "limparOperadores",
     ]),
     trocarSinal() {
-      const naoNumeros = ["+", "-", "×", "÷", ".", "=", "C", "CE", "=/-"];
       let tempDigito = this.digito;
 
       // se resultado já foi requerido, limpar tudo

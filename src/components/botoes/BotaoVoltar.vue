@@ -4,6 +4,7 @@
 
 <script>
 import { mapActions, mapGetters } from "vuex";
+import { operadoresValidos } from '../../utils/Util';
 
 export default {
   name: "BotaoVoltar",
@@ -13,7 +14,6 @@ export default {
   methods: {
     ...mapActions(["atualizarResultado", "atualizarDigito"]),
     voltarDigito() {
-      const operadoresValidos = ["+", "-", "×", "÷"];
       let tempDigito = this.digito;
 
       // se resultado já foi requerido, faça nada
