@@ -3,11 +3,35 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "BotaoVoltar",
+  computed: {
+    ...mapGetters(["digito"]),
+  },
   methods: {
-    voltarDigito: () => {
-      console.log("BotaoVoltar Click Handler.", event);
+    ...mapActions(["atualizarResultado", "atualizarDigito"]),
+    voltarDigito() {
+      const operadoresValidos = ["+", "-", "×", "÷"];
+      let tempDigito = this.digito;
+
+      // se resultado já foi requerido, faça nada
+      if (tempDigito === "=") {
+        return;
+      }
+
+      // se dígito atual não for um operador
+      if (!operadoresValidos.includes(tempDigito)) {
+        tempDigito = tempDigito.slice(0, -1);
+
+        if (tempDigito.length < 1) {
+          tempDigito = "0";
+        }
+
+        this.atualizarDigito(tempDigito);
+        this.atualizarResultado(tempDigito);
+      }
     },
   },
 };

@@ -3,11 +3,22 @@
 </template>
 
 <script>
+import { mapActions } from "vuex";
+
 export default {
   name: "BotaoLimparTudo",
   methods: {
+    ...mapActions([
+      "atualizarResultado",
+      "atualizarDigito",
+      "limparNumeros",
+      "limparOperadores",
+    ]),
     limparTudo() {
-      console.log("BotaoLimparTudo Click Handler.", event);
+      this.limparNumeros();
+      this.limparOperadores();
+      this.atualizarDigito("0");
+      this.atualizarResultado("0");
     },
   },
 };

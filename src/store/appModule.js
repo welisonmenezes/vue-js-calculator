@@ -2,13 +2,20 @@ const retornarResultadoGeral = (numeros, operadores) => {
     let resultado = numeros[0];
 
     numeros.forEach((numero, index) => {
-        if (operadores[index-1]) { 
-            resultado = retornarResultadoIndividual(operadores[index-1], resultado, numero);
+        if (operadores[index - 1]) {
+            resultado = retornarResultadoIndividual(
+                operadores[index - 1],
+                resultado,
+                numero
+            );
         }
     });
 
     try {
-        return resultado.toFixed(6) * 1;
+        let res = parseFloat(resultado);
+        res = res.toFixed(6);
+        res = parseFloat(res) * 1;
+        return res.toString();
     } catch (error) {
         console.log(error);
     }
@@ -16,21 +23,32 @@ const retornarResultadoGeral = (numeros, operadores) => {
     return resultado;
 };
 
-
 const retornarResultadoIndividual = (operador, numero1, numero2) => {
     let resultado;
 
-    if (operador === '÷') {
-        resultado = (numero1 === undefined) ? numero2 : parseFloat(numero1) / parseFloat(numero2);
+    if (operador === "÷") {
+        resultado =
+            numero1 === undefined
+                ? numero2
+                : parseFloat(numero1) / parseFloat(numero2);
     }
-    if (operador === '×') {
-        resultado = (numero1 === undefined) ? numero2 : parseFloat(numero1) * parseFloat(numero2);
+    if (operador === "×") {
+        resultado =
+            numero1 === undefined
+                ? numero2
+                : parseFloat(numero1) * parseFloat(numero2);
     }
-    if (operador === '-') {
-        resultado = (numero1 === undefined) ? numero2 : parseFloat(numero1) - parseFloat(numero2);
+    if (operador === "-") {
+        resultado =
+            numero1 === undefined
+                ? numero2
+                : parseFloat(numero1) - parseFloat(numero2);
     }
-    if (operador === '+') {
-        resultado = (numero1 === undefined) ? numero2 : parseFloat(numero1) + parseFloat(numero2);
+    if (operador === "+") {
+        resultado =
+            numero1 === undefined
+                ? numero2
+                : parseFloat(numero1) + parseFloat(numero2);
     }
 
     return resultado;
@@ -41,7 +59,7 @@ const state = {
     resultado: "0",
     historico: "",
     numeros: [],
-    operadores: []
+    operadores: [],
 };
 
 const getters = {
@@ -82,19 +100,22 @@ const actions = {
     },
     atualizarHistorico({ commit }) {
         commit("updateHistorico");
-    }
+    },
 };
 
 const mutations = {
     setDigito: (state, novoDigito) => (state.digito = novoDigito),
     setResultado: (state, novoResultado) => (state.resultado = novoResultado),
-    pushNumero: (state, novoNumero) => (state.numeros = [...state.numeros, novoNumero]),
+    pushNumero: (state, novoNumero) =>
+        (state.numeros = [...state.numeros, novoNumero]),
     clearNumeros: (state) => (state.numeros = []),
-    pushOperador: (state, novoOperador) => (state.operadores = [...state.operadores, novoOperador]),
-    changeOperadores: (state, novosOperadores) => (state.operadores = novosOperadores),
+    pushOperador: (state, novoOperador) =>
+        (state.operadores = [...state.operadores, novoOperador]),
+    changeOperadores: (state, novosOperadores) =>
+        (state.operadores = novosOperadores),
     clearOperadores: (state) => (state.operadores = []),
     updateHistorico: (state) => {
-        let numeroMostrado = '';
+        let numeroMostrado = "";
 
         state.numeros.forEach((numero, index) => {
             numeroMostrado += numero;
@@ -106,14 +127,17 @@ const mutations = {
 
         state.historico = numeroMostrado;
 
-        let resultadoCalculado = retornarResultadoGeral(state.numeros, state.operadores);
+        let resultadoCalculado = retornarResultadoGeral(
+            state.numeros,
+            state.operadores
+        );
 
         if (resultadoCalculado === undefined) {
             state.resultado = "0";
         } else {
             state.resultado = resultadoCalculado;
         }
-    }
+    },
 };
 
 export default {

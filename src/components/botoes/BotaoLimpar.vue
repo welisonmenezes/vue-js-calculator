@@ -3,11 +3,30 @@
 </template>
 
 <script>
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "BotaoLimpar",
+  computed: {
+    ...mapGetters(["digito"]),
+  },
   methods: {
-    limparDigitoAtual: () => {
-      console.log("BotaoLimpar Click Handler.", event);
+    ...mapActions([
+      "atualizarResultado",
+      "atualizarDigito",
+      "limparNumeros",
+      "limparOperadores",
+    ]),
+    limparDigitoAtual() {
+      if (this.digito === "=") {
+        this.limparNumeros();
+        this.limparOperadores();
+        this.atualizarDigito("0");
+        this.atualizarResultado("0");
+      } else {
+        this.atualizarDigito("0");
+        this.atualizarResultado("0");
+      }
     },
   },
 };
