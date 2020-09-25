@@ -1,5 +1,6 @@
 <template>
   <div class="calculadora">
+    <Header />
     <Historico />
     <Display />
     <Botoes />
@@ -7,6 +8,7 @@
 </template>
 
 <script>
+import Header from "./components/Header.vue";
 import Historico from "./components/Historico.vue";
 import Display from "./components/Display.vue";
 import Botoes from "./components/botoes/Botoes.vue";
@@ -14,6 +16,7 @@ import Botoes from "./components/botoes/Botoes.vue";
 export default {
   name: "Calculadora",
   components: {
+    Header,
     Historico,
     Display,
     Botoes,
