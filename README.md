@@ -1,24 +1,6 @@
-# vue-js-calculator
+# Vue Js Calculator
 
-## Project setup
-```
-yarn install
-```
+A simple calculator created using Vue Js and Vuex to manage the global app state.
 
-### Compiles and hot-reloads for development
-```
-yarn serve
-```
-
-### Compiles and minifies for production
-```
-yarn build
-```
-
-### Lints and fixes files
-```
-yarn lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Demo
+[See Online Demo](https://welisonmenezes.github.io/vue-js-calculator/).
