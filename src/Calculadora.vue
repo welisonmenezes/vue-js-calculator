@@ -1,13 +1,17 @@
 <template>
-  <div class="calculadora">
-    <Header />
-    <Historico />
-    <Display />
-    <Botoes />
+  <div>
+    <Forkme />
+    <div class="calculadora">
+      <Header />
+      <Historico />
+      <Display />
+      <Botoes />
+    </div>
   </div>
 </template>
 
 <script>
+import Forkme from "./components/Forkme.vue";
 import Header from "./components/Header.vue";
 import Historico from "./components/Historico.vue";
 import Display from "./components/Display.vue";
@@ -16,6 +20,7 @@ import Botoes from "./components/botoes/Botoes.vue";
 export default {
   name: "Calculadora",
   components: {
+    Forkme,
     Header,
     Historico,
     Display,

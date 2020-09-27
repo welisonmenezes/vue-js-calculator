@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <img :src="logo" alt="Logo" />
-    Vue Js Calculator
+    <h1>Vue Js <span>Calculator</span></h1>
   </div>
 </template>
 
@@ -26,9 +26,22 @@ export default {
   font-size: 16px;
   margin-bottom: 16px;
 }
+.header h1 {
+  font-size: 16px;
+  font-weight: normal;
+}
 .header img {
   width: 30px;
   height: 30px;
   margin-right: 1rem;
+}
+
+@media (max-width: 500px) {
+  .header h1 {
+    line-height: 14px;
+  }
+  .header span {
+    display: block;
+  }
 }
 </style>
